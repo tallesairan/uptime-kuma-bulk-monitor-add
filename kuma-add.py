@@ -4,13 +4,14 @@ from itertools import groupby
 import tldextract
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # If set to true, the Script will add the domains in abbreviated form, taking the initials, middle and 
-nsfw_check = True
+nsfw_check = False
 
 
-## a domain name digest for some NSFW check
+# function for domain name digest for some NSFW check
 def urlclean(domain):
     url_clean = tldextract.extract(domain)
     re = url_clean.domain
@@ -21,7 +22,8 @@ def urlclean(domain):
         resx = re[0] + re[len(re) // 2] + re[-1]
     return resx.upper()
 
-print(os.getenv('UPTIME_KUMA_URL'))
+
+print("Connecting to Uptime Kuma on: "+os.getenv('UPTIME_KUMA_URL'))
 api = UptimeKumaApi(os.getenv('UPTIME_KUMA_URL'))
 api.login(os.getenv('UPTIME_KUMA_USER'), os.getenv('UPTIME_KUMA_PASSWORD'))
 
