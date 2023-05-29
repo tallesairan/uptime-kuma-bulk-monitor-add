@@ -1,0 +1,3 @@
+tldextract
+uptime-kuma-api
+python-dotenv

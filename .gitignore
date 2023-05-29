@@ -1,0 +1,6 @@
+.env
+urls-example.txt
+urls.txt
+check.py
+.vscode/
+.idea/
